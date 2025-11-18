@@ -9,7 +9,7 @@ const selectorList = {
 };
 
 it('login', function() {
-  cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+  cy.visit('/auth/login')
   cy.get(selectorList.userNameField).type(userData.userSucess.login);
   cy.get(selectorList.passwordField).type(userData.userSucess.password);
   cy.get(selectorList.loginButton).click();
@@ -18,7 +18,7 @@ it('login', function() {
 });
 
 it('login-fail', function() {
-  cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+  cy.visit('/auth/login')
   cy.get(selectorList.userNameField).type(userData.userFail.login);
   cy.get(selectorList.passwordField).type(userData.userFail.password);
   cy.get('#app button.oxd-button').click();
