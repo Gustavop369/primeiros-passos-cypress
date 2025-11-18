@@ -37,14 +37,33 @@ it('login-fail', function() {
 });*/
 
 
+let login = "Admin"
+let password = 'admin123'
+
+const selectorList = {
+  userNameField: "[name='username']",
+  passwordField: ' [name="password"]',
+  loginButton: "[type='submit']",
+  sectionTitleTopBar: '#app h6.oxd-text'
+};
+
 it('login', function() {
   cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-  cy.get('#app [name="username"]').click();
-  cy.get('#app [name="username"]').type('Admin');
-  cy.get('#app [name="password"]').click();
-  cy.get('#app [name="password"]').type('admin123');
-  cy.get('#app button.oxd-button').click();
+  cy.get(selectorList.userNameField).type(login);
+  cy.get(selectorList.passwordField).type(password);
+  cy.get(selectorList.loginButton).click();
   cy.location('pathname').should('equal','/web/index.php/dashboard/index')
+  cy.get(selectorList.sectionTitleTopBar).contains("Dashboard")
+});
+
+it('login-fail', function() {
+  cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+  cy.get(selectorList.userNameField).type('hsfdbfbdbshfsd');
+  cy.get(selectorList.passwordField).type('jdfjsdkfkjdnf');
+  cy.get('#app button.oxd-button').click();
+  cy.get(selectorList.loginButton).click();
+  cy.contains('Invalid credentials').should('be.visible');
+  
 });
 
 
