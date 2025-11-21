@@ -1,4 +1,3 @@
-import userData from '../fixtures/user-data.json'
 class LoginPage{
     selectorList(){
         const selectors = {
@@ -14,9 +13,9 @@ class LoginPage{
        cy.visit('/auth/login') 
     }
 
-    loginWithUser(){
-        cy.get(this.selectorList().userNameField).type(userData.userSucess.login)
-        cy.get(this.selectorList().passwordField).type(userData.userSucess.password)
+    loginWithUser(login, password){
+        cy.get(this.selectorList().userNameField).type(login)
+        cy.get(this.selectorList().passwordField).type(password)
         cy.get(this.selectorList().loginButton).click()
     }
 }
