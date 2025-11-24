@@ -12,5 +12,8 @@
   "devDependencies": {
     "cypress": "^15.6.0"
   },
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "chance": "^1.1.13"
+  }
 }
