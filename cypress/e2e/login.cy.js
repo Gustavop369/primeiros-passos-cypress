@@ -9,7 +9,7 @@ const loginFailPage = new LoginFailPage();
 
 
 it('Login - Sucess', () => {
-  loginPage.acessLoginPage(userData.userSucess.login, userData.userSucess.password)
+  loginPage.acessLoginPage()
   loginPage.loginWithUser(userData.userSucess.login, userData.userSucess.password)
   dashboardPage.checkDashboardPage()
 
