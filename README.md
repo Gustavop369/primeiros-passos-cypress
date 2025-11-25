@@ -1,5 +1,6 @@
 # My Cypress Automation
 
+This automation script uses Cypress to test the core login functionality of a web application. The tests are designed to ensure that users can successfully access the application only when providing valid credentials and that appropriate error handling is in place for invalid attempts.
 
 ## Installation
 
